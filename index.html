@@ -12,6 +12,10 @@
     <title>🌶️ chilioil.club</title>
 
     <style>
+      :root {
+        --red: rgb(167, 19, 19);
+      }
+
       body,
       input {
         font-family: Optima, system-ui, -apple-system, BlinkMacSystemFont,
@@ -20,22 +24,36 @@
       }
       body {
         background: rgb(255, 250, 250);
-        color: rgb(167, 19, 19);
-        padding-top: 24px;
-        padding-left: 36px;
+        color: var(--red);
+        padding: 24px 36px;
         max-width: 600px;
       }
       h1 {
-        color: rgb(167, 19, 19);
+        color: var(--red);
+      }
+      h3 {
+        margin-top: 8px;
+        margin-bottom: 8px;
+      }
+      hr {
+        border: none;
+        border-top: 1px solid color-mix(in srgb, var(--red), transparent 85%);
+        margin-top: 36px;
+        margin-bottom: 36px;
       }
       input {
-        padding: 4px 8px;
-        border: 1px solid rgb(167, 19, 19);
+        padding: 8px;
+        border: 1px solid color-mix(in srgb, var(--red), transparent 65%);
         border-radius: 6px;
         font-size: 1rem;
       }
       input:focus {
-        outline: 2px solid rgb(167, 19, 19);
+        outline: 2px solid var(--red);
+      }
+      ul {
+        margin-top: 8px;
+        margin-bottom: 8px;
+        padding-left: 24px;
       }
     </style>
   </head>
@@ -54,19 +72,22 @@
           >hook me up</a
         >
       </p>
+      <hr />
+      <h3>recent batch notes</h3>
+      <ul id="notes"></ul>
+      <hr />
       <p>
-        contact:
-        <a href="mailto:contact@chilioil.club">contact@chilioil.club</a>
+        📍 made in sf<br />
+        ✉️ <a href="mailto:contact@chilioil.club">contact@chilioil.club</a>
       </p>
-      <br />
-      <h3>batch notes</h3>
-      <ul id="notes" />
     </main>
     <script>
+      // Yeah, I'm not trying too hard to hide this. But if I don't know you and you submit anyway, you probably won't get anything lol
+      const currentInviteCode = "march24";
       document.body
         .querySelector("#invite")
         .addEventListener("keyup", (event) => {
-          if (event.target.value.toLowerCase() === "march24") {
+          if (event.target.value.toLowerCase() === currentInviteCode) {
             event.target.remove();
             document.body.querySelector("#form").style = "";
           }
@@ -74,8 +95,14 @@
       const $notes = document.body.querySelector("#notes");
       const notes = [
         {
+          name: "jan 2023",
+          quantity: "2qt",
+          notes:
+            "~45% home ground kashmiri, ~45% sichuan chili flake, ~10% gochugaru. vegetable oil, sichuan peppercorns, garlic, ginger, cinnamon, black cardamom, star anise, bay leaf, cloves. finish with garlic powder, salt, white sesame seeds.",
+        },
+        {
           name: "oct 2023",
-          quantity: "2 quarts",
+          quantity: "2qt",
           notes:
             "~90% home ground kashmiri, ~10% gochugaru. vegetable oil, sichuan peppercorns, garlic, ginger, cinnamon, black cardamom, star anise, bay leaf, cloves. finish with garlic powder, salt, white sesame seeds.",
         },
