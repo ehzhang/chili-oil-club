@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta property="og:title" content="🌶️ chilioil.club" />
+    <meta
+      property="og:description"
+      content="chili oil for friends - made in sf"
+    />
+    <meta property="og:type" content="website" />
+    <title>🌶️ chilioil.club</title>
+
+    <style>
+      body,
+      input {
+        font-family: Optima, system-ui, -apple-system, BlinkMacSystemFont,
+          "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans",
+          "Helvetica Neue", sans-serif;
+      }
+      body {
+        background: rgb(255, 250, 250);
+        color: rgb(167, 19, 19);
+        padding-top: 24px;
+        padding-left: 36px;
+        max-width: 600px;
+      }
+      h1 {
+        color: rgb(167, 19, 19);
+      }
+      input {
+        padding: 4px 8px;
+        border: 1px solid rgb(167, 19, 19);
+        border-radius: 6px;
+        font-size: 1rem;
+      }
+      input:focus {
+        outline: 2px solid rgb(167, 19, 19);
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>🌶️ chili oil club</h1>
+      <p>ultra small batch chili oil just for friends</p>
+      <p>
+        <input id="invite" type="text" placeholder="invite code" />
+        <!-- yeah, i could actually validate this but i'm not that serious about it -->
+        <a
+          id="form"
+          style="display: none"
+          href="https://forms.gle/CUQqPUF7Qz9C9uKp8"
+          target="_blank"
+          >hook me up</a
+        >
+      </p>
+      <p>
+        contact:
+        <a href="mailto:contact@chilioil.club">contact@chilioil.club</a>
+      </p>
+      <br />
+      <h3>batch notes</h3>
+      <ul id="notes" />
+    </main>
+    <script>
+      document.body
+        .querySelector("#invite")
+        .addEventListener("keyup", (event) => {
+          if (event.target.value === "march24") {
+            event.target.remove();
+            document.body.querySelector("#form").style = "";
+          }
+        });
+      const $notes = document.body.querySelector("#notes");
+      const notes = [
+        {
+          name: "oct 2023",
+          quantity: "2 quarts",
+          notes:
+            "~90% home ground kashmiri, ~10% gochugaru. vegetable oil, sichuan peppercorns, garlic, ginger, cinnamon, black cardamom, star anise, bay leaf, cloves. finish with garlic powder, salt, white sesame seeds.",
+        },
+        {
+          name: "mar 2024",
+          quantity: "tbd",
+          notes: "incoming batch, tbd",
+        },
+      ].reverse();
+
+      notes.forEach((note) => {
+        const $li = document.createElement("li");
+        $li.innerHTML = `<strong>${note.name}</strong>: ${note.notes}`;
+        $notes.appendChild($li);
+      });
+    </script>
+  </body>
+</html>
