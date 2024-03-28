@@ -85,7 +85,7 @@
       <h1>🌶️ chili oil club</h1>
       <p>ultra small batch chili oil just for friends</p>
       <p>
-        <input id="invite" type="text" placeholder="closed for now!" disabled />
+        <input id="invite" type="text" placeholder="invite code (waitlist)" />
         <!-- yeah, i could actually validate this but i'm not that serious about it -->
         <a
           id="form"
@@ -107,7 +107,7 @@
     </main>
     <script>
       // Yeah, I'm not trying too hard to hide this. But if I don't know you and you submit anyway, you probably won't get anything lol
-      const currentInviteCode = "march24";
+      const currentInviteCode = "wait24";
       document.body
         .querySelector("#invite")
         .addEventListener("keyup", (event) => {
